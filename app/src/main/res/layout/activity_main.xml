@@ -8,6 +8,15 @@
         <variable
             name="user"
             type="ru.devsokovix.investor.User" />
+        <variable
+            name="ex_rate"
+            type="Double" />
+        <variable
+            name="f"
+            type="kotlin.jvm.functions.Function0" />
+        <variable
+            name="flag"
+            type="androidx.databinding.ObservableBoolean" />
 
     </data>
 
@@ -21,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="@{String.valueOf(user.cash)}"
+            android:text='@{String.format("%.1f",(((double)user.cash) / ex_rate))}'
             android:textSize="26sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,10 +42,22 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="15dp"
-            android:text="₽"
+            android:text="$"
             android:textSize="26sp"
             app:layout_constraintStart_toEndOf="@+id/cash"
             app:layout_constraintTop_toTopOf="parent"/>
+
+        <Button
+            android:id="@+id/bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{flag? "Pause" : "Resume"}'
+            android:textSize="13sp"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/recycler_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="@{() -> f.invoke()}"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"

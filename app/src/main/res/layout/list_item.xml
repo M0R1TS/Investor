@@ -6,6 +6,9 @@
         <variable
             name="stock"
             type="ru.devsokovix.investor.Stock" />
+        <variable
+            name="ex_rate"
+            type="Double" />
 
     </data>
 
@@ -45,7 +48,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="10dp"
             android:gravity="end"
-            android:text="@{String.valueOf(stock.price) + ' ' + '₽'}"
+            android:text='@{String.format("%.1f",(((double)stock.price) / ex_rate)) + " " +"$"}'
             android:textSize="21sp"/>
     </RelativeLayout>
 </layout>
