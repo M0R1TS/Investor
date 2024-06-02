@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <import type="ru.devsokovix.investor.User"/>
         <variable
             name="user"
-            type="ru.devsokovix.investor.User" />
+            type="ru.devsokovix.investor.ObservableField<User>" />
         <variable
             name="ex_rate"
             type="Double" />

@@ -2,12 +2,22 @@ package ru.devsokovix.investor
 
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
+import androidx.databinding.ObservableField
 
-class User(private val _cash: Int, val stockList: ArrayList<Stock>) : BaseObservable() {
-    @get:Bindable
+class User(_cash: Int, _stockList: ArrayList<Stock>) {
+
+    val cashObservable = ObservableField(_cash)
     var cash: Int = _cash
         set(value) {
             field = value
-            notifyPropertyChanged(BR.cash)
+            cashObservable.set(value)
         }
+
+    val stockListObservable = ObservableField(_stockList)
+    var stockList: ArrayList<Stock> = _stockList
+        set(value) {
+            field = value
+            stockListObservable.set(value)
+        }
+
 }
