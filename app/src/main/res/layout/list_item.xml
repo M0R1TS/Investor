@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="stock"
             type="ru.devsokovix.investor.Stock" />
+
         <variable
             name="ex_rate"
             type="Double" />
-
     </data>
 
     <RelativeLayout
@@ -29,7 +29,7 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="10dp"
-                imageId="@{stock.iconId}"/>
+                imageId="@{stock.iconId}" />
 
             <TextView
                 android:id="@+id/name"
@@ -37,8 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:text="@{stock.name}"
-                android:textSize="23sp"/>
-
+                android:textSize="23sp" />
         </LinearLayout>
 
         <TextView
@@ -47,8 +46,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="10dp"
-            android:gravity="end"
-            android:text='@{String.format("%.1f",(((double)stock.price) / ex_rate)) + " " +"$"}'
-            android:textSize="21sp"/>
+            android:layout_gravity="end"
+            android:text='@{String.format("%.1f",(((double)stock.priceObservable) / ex_rate)) + " " +"$"}'
+            android:textSize="21sp" />
     </RelativeLayout>
 </layout>
